@@ -670,7 +670,7 @@ def render():
 
       <header class="care-header">
         <div class="container nav-wrap">
-          <a class="brand" href="#home">
+          <a class="brand" href="?page=home">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <circle cx="23" cy="10" r="6" fill="#0fa69c"/>
               <circle cx="43" cy="10" r="6" fill="#f45e68"/>
@@ -685,13 +685,13 @@ def render():
           </a>
 
           <nav class="nav-links" aria-label="Primary navigation">
-            <a class="active" href="#home">Home</a>
-            <a href="#product">Product</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
+            <a class="active" href="?page=home">Home</a>
+            <a href="?page=product">Product</a>
+            <a href="?page=home#about">About Us</a>
+            <a href="?page=home#contact">Contact</a>
           </nav>
 
-          <a class="btn btn-coral nav-donate" href="#causes">
+          <a class="btn btn-coral nav-donate" href="?page=donate">
             Donate Us <span class="heart-only">♡</span>
           </a>
         </div>
@@ -718,7 +718,7 @@ def render():
               </p>
 
               <div class="hero-actions">
-                <a class="btn btn-teal" href="#causes">Donate Now <span>♡</span></a>
+                <a class="btn btn-teal" href="?page=donate">Donate Now <span>♡</span></a>
                 <a class="btn btn-outline" href="#about">Learn More <span>→</span></a>
               </div>
 
@@ -938,6 +938,8 @@ def render():
             </div>
           </div>
         </section>
+      
+        <section id="contact" style="height:1px;"></section>
       </main>
     </div>
     """
