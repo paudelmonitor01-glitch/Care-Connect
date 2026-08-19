@@ -64,19 +64,25 @@ st.markdown(
 
 
 def get_page():
-    """Read the page from the URL.
+    """
+    Read the page name from the URL.
 
-    Examples:
-        ?page=home
-        ?page=product
+    Online examples:
+        /?page=home
+        /?page=product
+        /?page=donate
     """
     page = st.query_params.get("page", "home")
 
-    # Extra safety in case a list-like value is returned
     if isinstance(page, list):
         page = page[0] if page else "home"
 
-    return str(page).strip().lower()
+    page = str(page).strip().lower()
+
+    if page not in {"home", "product", "donate"}:
+        page = "home"
+
+    return page
 
 
 def main():
@@ -84,17 +90,11 @@ def main():
 
     if page == "product":
         render_product()
+
     elif page == "donate":
         render_donate()
+
     else:
-        # Home is the default page for now.
-        # Later we can add:
-        # elif page == "about":
-        #     render_about()
-        # elif page == "contact":
-        #     render_contact()
-        # elif page == "donate":
-        #     render_donate()
         render_home()
 
 

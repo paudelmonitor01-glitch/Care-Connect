@@ -670,7 +670,7 @@ def render():
 
       <header class="care-header">
         <div class="container nav-wrap">
-          <a class="brand" href="?page=home">
+          <a class="brand" href="/?page=home" target="_self">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <circle cx="23" cy="10" r="6" fill="#0fa69c"/>
               <circle cx="43" cy="10" r="6" fill="#f45e68"/>
@@ -685,13 +685,13 @@ def render():
           </a>
 
           <nav class="nav-links" aria-label="Primary navigation">
-            <a class="active" href="?page=home">Home</a>
-            <a href="?page=product">Product</a>
-            <a href="?page=home#about">About Us</a>
-            <a href="?page=home#contact">Contact</a>
+            <a class="active" href="/?page=home" target="_self">Home</a>
+            <a href="/?page=product" target="_self">Product</a>
+            <a href="/?page=home#about" target="_self">About Us</a>
+            <a href="/?page=home#contact" target="_self">Contact</a>
           </nav>
 
-          <a class="btn btn-coral nav-donate" href="?page=donate">
+          <a class="btn btn-coral nav-donate" href="/?page=donate" target="_self">
             Donate Us <span class="heart-only">♡</span>
           </a>
         </div>
@@ -718,7 +718,7 @@ def render():
               </p>
 
               <div class="hero-actions">
-                <a class="btn btn-teal" href="?page=donate">Donate Now <span>♡</span></a>
+                <a class="btn btn-teal" href="/?page=donate" target="_self">Donate Now <span>♡</span></a>
                 <a class="btn btn-outline" href="#about">Learn More <span>→</span></a>
               </div>
 
