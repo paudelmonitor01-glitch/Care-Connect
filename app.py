@@ -1,6 +1,8 @@
 import streamlit as st
 
 from home import render as render_home
+from subpages.product import render as render_product
+from subpages.donate import render as render_donate
 
 
 st.set_page_config(
@@ -10,8 +12,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+
 # ------------------------------------------------------------
-# Streamlit shell cleanup
+# Remove default Streamlit UI / spacing
 # ------------------------------------------------------------
 st.markdown(
     """
@@ -60,10 +63,39 @@ st.markdown(
 )
 
 
+def get_page():
+    """Read the page from the URL.
+
+    Examples:
+        ?page=home
+        ?page=product
+    """
+    page = st.query_params.get("page", "home")
+
+    # Extra safety in case a list-like value is returned
+    if isinstance(page, list):
+        page = page[0] if page else "home"
+
+    return str(page).strip().lower()
+
+
 def main():
-    # For now there is only the Home page.
-    # Later you can add Product.py, About.py, Donate.py, etc.
-    render_home()
+    page = get_page()
+
+    if page == "product":
+        render_product()
+    elif page == "donate":
+        render_donate()
+    else:
+        # Home is the default page for now.
+        # Later we can add:
+        # elif page == "about":
+        #     render_about()
+        # elif page == "contact":
+        #     render_contact()
+        # elif page == "donate":
+        #     render_donate()
+        render_home()
 
 
 if __name__ == "__main__":
